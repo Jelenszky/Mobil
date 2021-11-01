@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         mOrientation = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)
         sensorManager.registerListener(sel, mOrientation, SensorManager.SENSOR_DELAY_NORMAL)
         sel.setTv(tv)
+        sel.setIv(iv)
     }
 
     override fun onResume() {

@@ -21,6 +21,7 @@ class OrientationSensorEventListener : SensorEventListener {
     override fun onSensorChanged(sensorEvent: SensorEvent) {
         val degree = sensorEvent.values[0]
         tv!!.setText(degree.toString())
+        iv!!.setRotation(-degree)
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, i: Int) {
