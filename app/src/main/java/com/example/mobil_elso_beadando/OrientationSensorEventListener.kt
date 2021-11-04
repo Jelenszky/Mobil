@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class OrientationSensorEventListener : SensorEventListener {
-    private var tv: TextView? = null
-    private var iv: ImageView?= null
+    private var tv: TextView
+    private var iv: ImageView
 
-    constructor(tv: TextView?, iv: ImageView?) {
+    constructor(tv: TextView, iv: ImageView) {
         this.tv = tv
         this.iv = iv
     }
@@ -18,8 +18,8 @@ class OrientationSensorEventListener : SensorEventListener {
 
     override fun onSensorChanged(sensorEvent: SensorEvent) {
         val degree = sensorEvent.values[0]
-        tv!!.setText(degree.toString())
-        iv!!.setRotation(-degree)
+        tv.setText(degree.toString())
+        iv.setRotation(-degree)
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, i: Int) {
