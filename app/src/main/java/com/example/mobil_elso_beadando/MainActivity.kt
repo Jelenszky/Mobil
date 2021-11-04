@@ -10,7 +10,7 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var sensorManager: SensorManager
-    private val sel : OrientationSensorEventListener = OrientationSensorEventListener();
+    private lateinit var  sel : OrientationSensorEventListener
     private lateinit var tv: TextView
     private lateinit var mOrientation: Sensor
     private lateinit var iv: ImageView
@@ -24,10 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         tv = findViewById(R.id.degreeTextView)
         iv = findViewById(R.id.imageView)
+        sel = OrientationSensorEventListener(tv,iv);
         mOrientation = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)
         sensorManager.registerListener(sel, mOrientation, SensorManager.SENSOR_DELAY_NORMAL)
-        sel.setTv(tv)
-        sel.setIv(iv)
     }
 
     override fun onResume() {

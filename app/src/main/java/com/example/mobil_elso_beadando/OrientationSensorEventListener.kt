@@ -10,13 +10,11 @@ class OrientationSensorEventListener : SensorEventListener {
     private var tv: TextView? = null
     private var iv: ImageView?= null
 
-    fun setTv(tv: TextView?) {
+    constructor(tv: TextView?, iv: ImageView?) {
         this.tv = tv
+        this.iv = iv
     }
 
-    fun setIv(iv: ImageView){
-        this.iv=iv
-    }
 
     override fun onSensorChanged(sensorEvent: SensorEvent) {
         val degree = sensorEvent.values[0]
